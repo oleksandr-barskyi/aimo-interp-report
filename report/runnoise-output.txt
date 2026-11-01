@@ -1,0 +1,21 @@
+case population: 80 pairs, 25 robust, 55 not robust
+fixed test drawn as 7 robust + 7 not robust, k = 8 samples
+3000 fixed tests x 120 runs each
+
+--- decision rule: batch median (n=14) ---
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)
+  1      7.00       0.16      0.18        0.09      0.01      0.001            0.000
+  2      7.96       0.90      1.65        1.38      0.83      0.067            0.250
+  4      8.42       0.77      1.76        1.59      0.62      0.043            0.233
+  8      8.67       0.67      1.81        1.68      0.51      0.032            0.183
+
+--- decision rule: per-model median (4/4/3/3) ---
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)
+  1      6.71       0.51      0.95        0.80      0.31      0.006            0.050
+  2      7.50       0.95      1.72        1.43      0.92      0.064            0.217
+  4      7.88       0.81      1.70        1.49      0.72      0.037            0.167
+  8      8.07       0.74      1.66        1.49      0.63      0.028            0.133
+
+Reference (power.py, across-test: cases AND answers redrawn):
+  AUC 0.50  E|delta| = 2.09  P(|delta| >= 3) = 0.265
+  AUC 0.65  E|delta| = 2.06  P(|delta| >= 3) = 0.258

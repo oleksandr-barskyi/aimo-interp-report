@@ -1,0 +1,11 @@
+{
+ "feature": "log1p_n_words",
+ "mean": 2.7544204886357533,
+ "scale": 0.761487616265273,
+ "coef": 0.9820687959461765,
+ "intercept": -0.20049403705071,
+ "n_train": 137,
+ "train_robust_rate": 0.26277372262773724,
+ "word_cutoff": 17.35462936051845,
+ "sklearn_free": true
+}

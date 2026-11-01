@@ -1,0 +1,34 @@
+snapshot 2026-11-01 07:04 UTC; phases {26647: 'Warmup phase', 30038: 'Competition phase'}
+Main: ours None, rank None (first among ties: None) of 120; top [('susupro', 1.0), ('aloha501', 0.8571428571), ('mainguyenanhvu', 0.8571428571), ('judeswallis', 0.8095238095), ('wzyfromhust', 0.8095238095)]
+Small: ours None, rank None (first among ties: None) of 138; top [('blacklions', 1.0), ('ishitarane767', 1.0), ('aloha501', 1.0), ('abhinaviitk31', 1.0), ('susupro', 1.0)]
+
+| id | date (UTC) | track | bundle | accuracy | coverage | invalid |
+| --- | --- | --- | --- | --- | --- | --- |
+| 920251 | 2026-09-09 14:40 | Main v7 | `solution-always-true-small.zip` | 0 | 0 | 21 |
+| 920252 | 2026-09-09 14:40 | Small v7 | `solution-always-true-small.zip` | 0.5263 | 1 | 0 |
+| 920255 | 2026-09-09 14:42 | Small v7 | `solution-uncertainty-profiling-smal.zip` | 0.4211 | 1 | 0 |
+| 920351 | 2026-09-09 16:01 | Small v7 | `solution-text-prior-small.zip` | 0.5263 | 1 | 0 |
+| 920372 | 2026-09-09 16:44 | Small v7 | `solution-trace-length-small.zip` | 0.4737 | 1 | 0 |
+| 920381 | 2026-09-09 16:50 | Small v7 | `solution-census-small.zip` | 0.1053 | 0.2105 | 15 |
+| 920398 | 2026-09-09 17:12 | Small v7 | `solution-census-olmo-small.zip` | 0.1579 | 0.3158 | 13 |
+| 920400 | 2026-09-09 17:15 | Small v7 | `solution-census-rest-small.zip` | 0 | 0 | 19 |
+| 920403 | 2026-09-09 17:17 | Small v7 | `solution-census-loadable-small.zip` | 0.5263 | 1 | 0 |
+| 920428 | 2026-09-09 17:33 | Small v7 | `solution-census-family-small.zip` | 0.1053 | 0.1579 | 16 |
+| 920913 | 2026-09-10 06:03 | Small v7 | `solution-census-llama-small.zip` | 0 | 0 | 19 |
+| 920914 | 2026-09-10 06:03 | Small v7 | `solution-census-mistral-small.zip` | 0 | 0 | 19 |
+| 920915 | 2026-09-10 06:03 | Small v7 | `solution-census-phi-small.zip` | 0 | 0 | 19 |
+| 920916 | 2026-09-10 06:03 | Small v7 | `solution-census-qwen2-small.zip` | 0.1579 | 0.3158 | 13 |
+| 920917 | 2026-09-10 06:03 | Small v7 | `solution-census-other-small.zip` | 0 | 0 | 19 |
+| 920919 | 2026-09-10 06:07 | Small v7 | `solution-census-q2name-small.zip` | 0 | 0 | 19 |
+| 920920 | 2026-09-10 06:07 | Small v7 | `solution-census-q2qwen25-small.zip` | 0 | 0 | 19 |
+| 920921 | 2026-09-10 06:07 | Small v7 | `solution-census-q2large-small.zip` | 0.1579 | 0.3158 | 13 |
+| 920922 | 2026-09-10 06:07 | Small v7 | `solution-census-trio-qwen3-small.zip` | 0.1053 | 0.1579 | 16 |
+| 928280 | 2026-09-16 20:11 | Main | `solution-always-true-small.zip` | --- | --- | --- | Cancelled
+| 929069 | 2026-09-16 22:35 | Small | `solution-always-true-small.zip` | --- | --- | --- | Cancelled
+| 932602 | 2026-09-18 22:14 | Small | `solution-always-true-small.zip` | 0.5000 | 1 | 0 |
+| 932603 | 2026-09-18 22:14 | Main | `solution-always-true.zip` | 0.4762 | 1 | 0 |
+| 932604 | 2026-09-18 22:15 | Main | `solution-always-false.zip` | 0.5238 | 1 | 0 |
+| 932626 | 2026-09-18 23:02 | Small | `solution-self-consistency-small.zip` | 0.3571 | 1 | 0 |
+| 932631 | 2026-09-18 23:10 | Small | `solution-self-consistency-small.zip` | 0.5714 | 1 | 0 |
+| 933057 | 2026-09-19 07:44 | Main | `solution-self-consistency.zip` | 0.3333 | 1 | 0 |
+| 933231 | 2026-09-19 09:42 | Small | `solution-self-consistency-small.zip` | 0.3571 | 1 | 0 |

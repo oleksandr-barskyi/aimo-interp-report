@@ -1,0 +1,24 @@
+pairs: 80 problems: 10 models: 8 robust: 25
+
+cluster bootstrap by problem, 5000 resamples, n_clusters = 10
+AUC(-base_accuracy)    0.695  95% CI [0.402, 0.865]
+AUC(extremeness)       0.745  95% CI [0.653, 0.830]
+acc(base==0 rule)      0.838  95% CI [0.775, 0.900]
+AUC(base==0 rule)      0.784  95% CI [0.570, 0.897]
+
+small-model slice (<=10B aliases present in this split):
+  Qwen/Qwen3.5-397B-A17B-FP8:low                pairs=10 robust=2 base==0=1 mean_base=0.83
+  gemini-3.1-pro-preview:low                    pairs=10 robust=1 base==0=2 mean_base=0.72
+  gpt-5.2-2025-12-11                            pairs=10 robust=5 base==0=6 mean_base=0.35
+  gpt-5.2-2025-12-11:low                        pairs=10 robust=4 base==0=1 mean_base=0.68
+  gpt-oss-120b:low                              pairs=10 robust=3 base==0=4 mean_base=0.45
+  huikang-gpt-oss-120b-aimo3:low                pairs=10 robust=3 base==0=3 mean_base=0.63
+  lukealonso/GLM-5.1-NVFP4:low                  pairs=10 robust=5 base==0=1 mean_base=0.73
+  qwen3-8b:low                                  pairs=10 robust=2 base==0=2 mean_base=0.63
+
+contingency, base_accuracy x label:
+robust         0   1
+base                
+0.0            4  16
+1.0           24   9
+intermediate  27   0

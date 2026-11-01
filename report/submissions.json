@@ -1,0 +1,343 @@
+{
+ "snapshot": "2026-11-01 07:04 UTC",
+ "ranks": {
+  "Main": {
+   "teams": 120,
+   "rank": null,
+   "rank_tied_best": null,
+   "ours": null,
+   "top": [
+    [
+     "susupro",
+     1.0
+    ],
+    [
+     "aloha501",
+     0.8571428571
+    ],
+    [
+     "mainguyenanhvu",
+     0.8571428571
+    ],
+    [
+     "judeswallis",
+     0.8095238095
+    ],
+    [
+     "wzyfromhust",
+     0.8095238095
+    ]
+   ]
+  },
+  "Small": {
+   "teams": 138,
+   "rank": null,
+   "rank_tied_best": null,
+   "ours": null,
+   "top": [
+    [
+     "blacklions",
+     1.0
+    ],
+    [
+     "ishitarane767",
+     1.0
+    ],
+    [
+     "aloha501",
+     1.0
+    ],
+    [
+     "abhinaviitk31",
+     1.0
+    ],
+    [
+     "susupro",
+     1.0
+    ]
+   ]
+  }
+ },
+ "rows": [
+  {
+   "id": 920251,
+   "date": "2026-09-09 14:40",
+   "track": "Main v7",
+   "file": "solution-always-true-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 21.0
+  },
+  {
+   "id": 920252,
+   "date": "2026-09-09 14:40",
+   "track": "Small v7",
+   "file": "solution-always-true-small.zip",
+   "status": "Finished",
+   "accuracy": 0.5263157895,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 920255,
+   "date": "2026-09-09 14:42",
+   "track": "Small v7",
+   "file": "solution-uncertainty-profiling-smal.zip",
+   "status": "Finished",
+   "accuracy": 0.4210526316,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 920351,
+   "date": "2026-09-09 16:01",
+   "track": "Small v7",
+   "file": "solution-text-prior-small.zip",
+   "status": "Finished",
+   "accuracy": 0.5263157895,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 920372,
+   "date": "2026-09-09 16:44",
+   "track": "Small v7",
+   "file": "solution-trace-length-small.zip",
+   "status": "Finished",
+   "accuracy": 0.4736842105,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 920381,
+   "date": "2026-09-09 16:50",
+   "track": "Small v7",
+   "file": "solution-census-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1052631579,
+   "coverage": 0.2105263158,
+   "invalid": 15.0
+  },
+  {
+   "id": 920398,
+   "date": "2026-09-09 17:12",
+   "track": "Small v7",
+   "file": "solution-census-olmo-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1578947368,
+   "coverage": 0.3157894737,
+   "invalid": 13.0
+  },
+  {
+   "id": 920400,
+   "date": "2026-09-09 17:15",
+   "track": "Small v7",
+   "file": "solution-census-rest-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920403,
+   "date": "2026-09-09 17:17",
+   "track": "Small v7",
+   "file": "solution-census-loadable-small.zip",
+   "status": "Finished",
+   "accuracy": 0.5263157895,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 920428,
+   "date": "2026-09-09 17:33",
+   "track": "Small v7",
+   "file": "solution-census-family-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1052631579,
+   "coverage": 0.1578947368,
+   "invalid": 16.0
+  },
+  {
+   "id": 920913,
+   "date": "2026-09-10 06:03",
+   "track": "Small v7",
+   "file": "solution-census-llama-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920914,
+   "date": "2026-09-10 06:03",
+   "track": "Small v7",
+   "file": "solution-census-mistral-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920915,
+   "date": "2026-09-10 06:03",
+   "track": "Small v7",
+   "file": "solution-census-phi-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920916,
+   "date": "2026-09-10 06:03",
+   "track": "Small v7",
+   "file": "solution-census-qwen2-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1578947368,
+   "coverage": 0.3157894737,
+   "invalid": 13.0
+  },
+  {
+   "id": 920917,
+   "date": "2026-09-10 06:03",
+   "track": "Small v7",
+   "file": "solution-census-other-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920919,
+   "date": "2026-09-10 06:07",
+   "track": "Small v7",
+   "file": "solution-census-q2name-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920920,
+   "date": "2026-09-10 06:07",
+   "track": "Small v7",
+   "file": "solution-census-q2qwen25-small.zip",
+   "status": "Finished",
+   "accuracy": 0.0,
+   "coverage": 0.0,
+   "invalid": 19.0
+  },
+  {
+   "id": 920921,
+   "date": "2026-09-10 06:07",
+   "track": "Small v7",
+   "file": "solution-census-q2large-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1578947368,
+   "coverage": 0.3157894737,
+   "invalid": 13.0
+  },
+  {
+   "id": 920922,
+   "date": "2026-09-10 06:07",
+   "track": "Small v7",
+   "file": "solution-census-trio-qwen3-small.zip",
+   "status": "Finished",
+   "accuracy": 0.1052631579,
+   "coverage": 0.1578947368,
+   "invalid": 16.0
+  },
+  {
+   "id": 928280,
+   "date": "2026-09-16 20:11",
+   "track": "Main",
+   "file": "solution-always-true-small.zip",
+   "status": "Cancelled",
+   "accuracy": null,
+   "coverage": null,
+   "invalid": null
+  },
+  {
+   "id": 929069,
+   "date": "2026-09-16 22:35",
+   "track": "Small",
+   "file": "solution-always-true-small.zip",
+   "status": "Cancelled",
+   "accuracy": null,
+   "coverage": null,
+   "invalid": null
+  },
+  {
+   "id": 932602,
+   "date": "2026-09-18 22:14",
+   "track": "Small",
+   "file": "solution-always-true-small.zip",
+   "status": "Finished",
+   "accuracy": 0.5,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 932603,
+   "date": "2026-09-18 22:14",
+   "track": "Main",
+   "file": "solution-always-true.zip",
+   "status": "Finished",
+   "accuracy": 0.4761904762,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 932604,
+   "date": "2026-09-18 22:15",
+   "track": "Main",
+   "file": "solution-always-false.zip",
+   "status": "Finished",
+   "accuracy": 0.5238095238,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 932626,
+   "date": "2026-09-18 23:02",
+   "track": "Small",
+   "file": "solution-self-consistency-small.zip",
+   "status": "Finished",
+   "accuracy": 0.3571428571,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 932631,
+   "date": "2026-09-18 23:10",
+   "track": "Small",
+   "file": "solution-self-consistency-small.zip",
+   "status": "Finished",
+   "accuracy": 0.5714285714,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 933057,
+   "date": "2026-09-19 07:44",
+   "track": "Main",
+   "file": "solution-self-consistency.zip",
+   "status": "Finished",
+   "accuracy": 0.3333333333,
+   "coverage": 1.0,
+   "invalid": 0.0
+  },
+  {
+   "id": 933231,
+   "date": "2026-09-19 09:42",
+   "track": "Small",
+   "file": "solution-self-consistency-small.zip",
+   "status": "Finished",
+   "accuracy": 0.3571428571,
+   "coverage": 1.0,
+   "invalid": 0.0
+  }
+ ]
+}
