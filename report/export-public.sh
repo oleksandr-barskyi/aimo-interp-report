@@ -8,7 +8,7 @@ cd "$(dirname "$0")/.."
 DEST=public
 mkdir -p "$DEST"
 git ls-files solutions analysis report \
-  | grep -v -E '^report/((README|OUTLINE|letter-section6-draft|public-README)\.md|public-LICENSE|karazin-mail-wait\.py|openreview-verify\.py)$' \
+  | grep -v -E '^report/((README|OUTLINE|letter-section6-draft|public-README)\.md|letter-section6-sent\.txt|openreview-submit\.py|public-LICENSE|karazin-mail-wait\.py|openreview-verify\.py)$' \
   | while read -r f; do mkdir -p "$DEST/$(dirname "$f")"; cp -p "$f" "$DEST/$f"; done
 for f in report/report.pdf report/report-main.pdf report/neurips_2026.sty \
          report/neurips-header.tex report/submissions.py report/submissions-output.txt \
