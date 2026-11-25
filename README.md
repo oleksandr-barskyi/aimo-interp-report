@@ -1,8 +1,9 @@
-# A leaderboard that cannot measure
+# Working-phase leaderboards that cannot detect an AUC 0.65 scorer
 
 Code, submission bundles and paper source for the technical report
-*"A leaderboard that cannot measure: negative results and measurement limits
-in the AIMO Interpretability Challenge"* (NeurIPS 2026 competition track,
+*"Working-phase leaderboards that cannot detect an AUC 0.65 scorer: negative
+results and measurement limits in the AIMO Interpretability Challenge"*
+(NeurIPS 2026 competition track,
 AIMO Interpretability Challenge, Codabench competition 16180, user `obarskyi`).
 
 The paper: [`report/report.pdf`](report/report.pdf) (full) and
@@ -13,6 +14,7 @@ The paper: [`report/report.pdf`](report/report.pdf) (full) and
 | path | what |
 | --- | --- |
 | `solutions/` | every submitted bundle as a source directory; `self-consistency/` is the method of §5, `census*/` the composition probes of §6 and Appendix B |
+| `solutions/self-consistency-932626`, `-932631`, `-933057` | the code of Codabench submissions 932626, 932631 (Small track) and 933057 (Main track), Appendix H |
 | `analysis/` | the 80-pair analysis of §4-§5 (`aimo_reference.py`) and the corpus work of Appendix E |
 | `report/` | the paper source (`report.md`), the scripts behind every number, their saved outputs and both figures |
 
@@ -24,6 +26,7 @@ Python 3.11+, `numpy`, `pandas`, `scipy`, `scikit-learn`, `matplotlib`.
 python3 report/power.py       # §3 power numbers, Appendix C   -> report/power-output.txt
 python3 report/runnoise.py    # §3 within-test model, App. D   -> report/runnoise-output.txt
 python3 report/ci80.py        # §4 clustered intervals          -> report/ci80-output.txt
+python3 report/signmodel.py   # §5 simulation under assumed m   -> report/signmodel-output.txt
 python3 report/figures.py     # Figures 1 and 2
 ```
 
@@ -46,7 +49,7 @@ marker. `report/submissions.py` lists every submission with its scores
 
 The PDF is typeset with the official NeurIPS 2026 style (`neurips_2026.sty`)
 through pandoc and pdflatex: `report/build-pdf.sh` (full) and
-`report/build-pdf.sh --main` (main body, the 5-page part).
+`report/build-pdf.sh --main` (main body, the 6-page part).
 
 ## License
 

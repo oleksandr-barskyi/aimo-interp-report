@@ -1,21 +1,44 @@
+==================== label rule: zero ====================
 case population: 80 pairs, 25 robust, 55 not robust
 fixed test drawn as 7 robust + 7 not robust, k = 8 samples
 3000 fixed tests x 120 runs each
 
 --- decision rule: batch median (n=14) ---
-  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)
-  1      7.00       0.16      0.18        0.09      0.01      0.001            0.000
-  2      7.96       0.90      1.65        1.38      0.83      0.067            0.250
-  4      8.42       0.77      1.76        1.59      0.62      0.043            0.233
-  8      8.67       0.67      1.81        1.68      0.51      0.032            0.183
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)   E[s]
+  1      7.00       0.16      0.18        0.09      0.01      0.001            0.000  14.00
+  2      7.96       0.90      1.65        1.38      0.83      0.067            0.250   8.81
+  4      8.42       0.77      1.76        1.59      0.62      0.043            0.233   8.59
+  8      8.67       0.67      1.81        1.68      0.51      0.032            0.183   8.55
 
 --- decision rule: per-model median (4/4/3/3) ---
-  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)
-  1      6.71       0.51      0.95        0.80      0.31      0.006            0.050
-  2      7.50       0.95      1.72        1.43      0.92      0.064            0.217
-  4      7.88       0.81      1.70        1.49      0.72      0.037            0.167
-  8      8.07       0.74      1.66        1.49      0.63      0.028            0.133
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)   E[s]
+  1      6.71       0.51      0.95        0.80      0.31      0.006            0.050  13.13
+  2      7.50       0.95      1.72        1.43      0.92      0.064            0.217  10.01
+  4      7.88       0.81      1.70        1.49      0.72      0.037            0.167   9.85
+  8      8.07       0.74      1.66        1.49      0.63      0.028            0.133   9.83
 
 Reference (power.py, across-test: cases AND answers redrawn):
-  AUC 0.50  E|delta| = 2.09  P(|delta| >= 3) = 0.265
-  AUC 0.65  E|delta| = 2.06  P(|delta| >= 3) = 0.258
+  AUC 0.50  E|delta| = 2.08  P(|delta| >= 3) = 0.262  (deployed rule)
+  AUC 0.65  E|delta| = 2.02  P(|delta| >= 3) = 0.248  (deployed rule)
+==================== label rule: official ====================
+case population: 69 pairs, 38 robust, 31 not robust
+fixed test drawn as 7 robust + 7 not robust, k = 8 samples
+3000 fixed tests x 120 runs each
+
+--- decision rule: batch median (n=14) ---
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)   E[s]
+  1      6.96       0.29      0.37        0.23      0.06      0.012            0.000  13.81
+  2      8.89       1.04      1.88        1.56      0.91      0.109            0.450   9.40
+  4      9.09       0.98      1.95        1.69      0.81      0.098            0.467   9.27
+  8      9.23       0.97      2.01        1.77      0.78      0.092            0.450   9.16
+
+--- decision rule: per-model median (4/4/3/3) ---
+  m  E[score]  sd within  sd total  sd between  E|delta|  P(|d|>=3)  P(|d|>=3|worst)   E[s]
+  1      6.86       0.61      1.08        0.89      0.45      0.012            0.100  12.64
+  2      8.17       0.93      1.70        1.43      0.89      0.058            0.200  10.23
+  4      8.35       0.80      1.71        1.51      0.71      0.035            0.150  10.11
+  8      8.41       0.77      1.71        1.53      0.67      0.030            0.134  10.11
+
+Reference (power.py, across-test: cases AND answers redrawn):
+  AUC 0.50  E|delta| = 2.08  P(|delta| >= 3) = 0.262  (deployed rule)
+  AUC 0.65  E|delta| = 2.02  P(|delta| >= 3) = 0.248  (deployed rule)

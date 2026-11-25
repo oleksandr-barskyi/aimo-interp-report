@@ -1,3 +1,5 @@
+
+==================== label rule: zero ====================
 pairs: 80 problems: 10 models: 8 robust: 25
 
 cluster bootstrap by problem, 5000 resamples, n_clusters = 10
@@ -6,19 +8,92 @@ AUC(extremeness)       0.745  95% CI [0.653, 0.830]
 acc(base==0 rule)      0.838  95% CI [0.775, 0.900]
 AUC(base==0 rule)      0.784  95% CI [0.570, 0.897]
 
-small-model slice (<=10B aliases present in this split):
-  Qwen/Qwen3.5-397B-A17B-FP8:low                pairs=10 robust=2 base==0=1 mean_base=0.83
-  gemini-3.1-pro-preview:low                    pairs=10 robust=1 base==0=2 mean_base=0.72
-  gpt-5.2-2025-12-11                            pairs=10 robust=5 base==0=6 mean_base=0.35
-  gpt-5.2-2025-12-11:low                        pairs=10 robust=4 base==0=1 mean_base=0.68
-  gpt-oss-120b:low                              pairs=10 robust=3 base==0=4 mean_base=0.45
-  huikang-gpt-oss-120b-aimo3:low                pairs=10 robust=3 base==0=3 mean_base=0.63
-  lukealonso/GLM-5.1-NVFP4:low                  pairs=10 robust=5 base==0=1 mean_base=0.73
-  qwen3-8b:low                                  pairs=10 robust=2 base==0=2 mean_base=0.63
+per model:
+  Qwen/Qwen3.5-397B-A17B-FP8:low                pairs=10 robust=2 base==0=1 robust&base==0=1 mean_base=0.83
+  gemini-3.1-pro-preview:low                    pairs=10 robust=1 base==0=2 robust&base==0=1 mean_base=0.72
+  gpt-5.2-2025-12-11                            pairs=10 robust=5 base==0=6 robust&base==0=5 mean_base=0.35
+  gpt-5.2-2025-12-11:low                        pairs=10 robust=4 base==0=1 robust&base==0=1 mean_base=0.68
+  gpt-oss-120b:low                              pairs=10 robust=3 base==0=4 robust&base==0=3 mean_base=0.45
+  huikang-gpt-oss-120b-aimo3:low                pairs=10 robust=3 base==0=3 robust&base==0=2 mean_base=0.63
+  lukealonso/GLM-5.1-NVFP4:low                  pairs=10 robust=5 base==0=1 robust&base==0=1 mean_base=0.73
+  qwen3-8b:low                                  pairs=10 robust=2 base==0=2 robust&base==0=2 mean_base=0.63
 
-contingency, base_accuracy x label:
+contingency, base_accuracy x label, all models:
 robust         0   1
 base                
 0.0            4  16
 1.0           24   9
 intermediate  27   0
+
+contingency, base_accuracy x label, large/frontier models (7):
+robust         0   1
+base                
+0.0            4  14
+1.0           19   9
+intermediate  24   0
+
+contingency, base_accuracy x label, qwen3-8b only (<=10B):
+robust        0  1
+base              
+0.0           0  2
+1.0           5  0
+intermediate  3  0
+
+==================== label rule: official ====================
+pairs: 69 problems: 10 models: 8 robust: 38
+
+cluster bootstrap by problem, 5000 resamples, n_clusters = 10
+AUC(-base_accuracy)    0.781  95% CI [0.615, 0.907]
+AUC(extremeness)       0.595  95% CI [0.457, 0.760]
+acc(base==0 rule)      0.739  95% CI [0.629, 0.847]
+AUC(base==0 rule)      0.763  95% CI [0.597, 0.884]
+
+per model:
+  Qwen/Qwen3.5-397B-A17B-FP8:low                pairs= 9 robust=2 base==0=1 robust&base==0=1 mean_base=0.81
+  gemini-3.1-pro-preview:low                    pairs=10 robust=3 base==0=2 robust&base==0=2 mean_base=0.72
+  gpt-5.2-2025-12-11                            pairs=10 robust=7 base==0=6 robust&base==0=6 mean_base=0.35
+  gpt-5.2-2025-12-11:low                        pairs= 9 robust=6 base==0=1 robust&base==0=1 mean_base=0.68
+  gpt-oss-120b:low                              pairs= 9 robust=4 base==0=4 robust&base==0=4 mean_base=0.47
+  huikang-gpt-oss-120b-aimo3:low                pairs= 8 robust=6 base==0=3 robust&base==0=3 mean_base=0.56
+  lukealonso/GLM-5.1-NVFP4:low                  pairs= 8 robust=6 base==0=1 robust&base==0=1 mean_base=0.76
+  qwen3-8b:low                                  pairs= 6 robust=4 base==0=2 robust&base==0=2 mean_base=0.53
+
+contingency, base_accuracy x label, all models:
+robust         0   1
+base                
+0.0            0  20
+1.0           18  10
+intermediate  13   8
+
+contingency, base_accuracy x label, large/frontier models (7):
+robust         0   1
+base                
+0.0            0  18
+1.0           16  10
+intermediate  13   6
+
+contingency, base_accuracy x label, qwen3-8b only (<=10B):
+robust        0  1
+base              
+0.0           0  2
+1.0           2  0
+intermediate  0  2
+
+==================== train-main-v2 (the five test checkpoints) ====================
+rows 94, labelled 80, robust 59, unlabelled 14, problems 36
+base_accuracy is not published; base == 0 forces max_drop <= 0, so the robust rows with
+max_drop <= 0 bound from above how many robust rows can sit at base accuracy 0:
+  robust rows with max_drop <= 0: 25/59 (max_drop < 0: 6, == 0: 19)
+  robust rows with 0 < max_drop <= 0.10 (base > 0 for certain): 34/59
+per configuration:
+  Qwen/Qwen3.5-4B default                            robust= 8 of 12  max_drop<=0 among robust=3
+  Skywork/Skywork-OR1-Math-7B default                robust= 9 of 12  max_drop<=0 among robust=5
+  allenai/Olmo-3-7B-Think default                    robust= 7 of  9  max_drop<=0 among robust=5
+  deepseek-ai/DeepSeek-R1-0528-Qwen3-8B default      robust= 7 of 10  max_drop<=0 among robust=3
+  openai/gpt-oss-120b high                           robust=13 of 15  max_drop<=0 among robust=5
+  openai/gpt-oss-120b low                            robust= 5 of  7  max_drop<=0 among robust=2
+  openai/gpt-oss-120b medium                         robust=10 of 15  max_drop<=0 among robust=2
+
+problem memorisation: label of a row predicted by the majority label of the other
+configurations on the same problem text (ties and singleton problems skipped):
+  62 of 63

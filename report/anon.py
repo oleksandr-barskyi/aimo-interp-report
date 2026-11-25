@@ -10,8 +10,8 @@ import sys
 REPO = "`https://github.com/oleksandr-barskyi/aimo-interp-report`"
 r = sys.stdin.read()
 r = re.sub(r'^author: .*\n', '', r, count=1, flags=re.M)
-r = r.replace("**Repository.** " + REPO, "**Repository.** The supplementary material (a public repository link is withheld for anonymous review)")
-r = r.replace(REPO, "the supplementary material (a public repository link is withheld for anonymous review)")
+r = r.replace("**Repository.** " + REPO, "**Repository.** A public repository (link withheld for anonymous review)")
+r = r.replace(REPO, "a public repository (link withheld for anonymous review)")
 r = r.replace("Codabench user `obarskyi`, ", "")
 r = r.replace("`obarskyi`", "(withheld)")
 for s in ("barskyi", "umka", "karazin"):

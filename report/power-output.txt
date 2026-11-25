@@ -1,54 +1,48 @@
 
-=== Small track v8 (2026-09-16): n=14, robust=7, spurious=7, best constant=7/14=0.5000 ===
-  AUC   E[acc]  sd(cases)  P(>const)  P(>=const)  P(>=const+3)
- 0.50   0.5003       1.95      0.500       0.500         0.144
- 0.60   0.5726       1.93      0.710       0.710         0.303
- 0.65   0.6091       1.90      0.799       0.799         0.406
- 0.70   0.6473       1.86      0.874       0.874         0.526
- 0.80   0.7294       1.75      0.967       0.967         0.771
- 0.90   0.8243       1.54      0.997       0.997         0.951
+=== Small track v8, deployed per-model median: n=14, robust=7, best constant=7/14, groups=(4, 4, 3, 3) ===
+exact null (s=8 robust calls on a random subset): critical: reject if score > 11/14 (non-rand. alpha=0.0023; randomized gamma=0.9738 at 11)
+  AUC   E[acc]  sd(cases)  P(>const)  P(>=const+3)  power non-rand  power rand
+ 0.50   0.5007       1.92      0.299         0.052           0.002       0.051
+ 0.60   0.5590       1.90      0.468         0.116           0.008       0.113
+ 0.65   0.5897       1.88      0.563         0.168           0.014       0.164
+ 0.70   0.6190       1.84      0.653         0.230           0.023       0.224
+ 0.80   0.6805       1.73      0.824         0.401           0.059       0.392
+ 0.90   0.7442       1.56      0.945         0.627           0.140       0.615
+minimum AUC detected with 80% power (randomized test):
+  AUC = 0.98
 
-=== Main track v8: n=21, robust=10, spurious=11, best constant=11/21=0.5238 ===
-  AUC   E[acc]  sd(cases)  P(>const)  P(>=const)  P(>=const+3)
- 0.50   0.4991       2.34      0.410       0.410         0.136
- 0.60   0.5701       2.31      0.669       0.669         0.327
- 0.65   0.6074       2.29      0.786       0.786         0.463
- 0.70   0.6443       2.25      0.875       0.875         0.603
- 0.80   0.7241       2.10      0.976       0.976         0.860
- 0.90   0.8167       1.80      0.999       0.999         0.986
+=== Main track v8, deployed per-model median: n=21, robust=10, best constant=11/21, groups=(5, 4, 4, 4, 4) ===
+exact null (s=11 robust calls on a random subset): critical: reject if score > 14/21 (non-rand. alpha=0.0226; randomized gamma=0.2437 at 14)
+  AUC   E[acc]  sd(cases)  P(>const)  P(>=const+3)  power non-rand  power rand
+ 0.50   0.4991       2.34      0.411         0.136           0.022       0.050
+ 0.60   0.5603       2.32      0.635         0.296           0.074       0.128
+ 0.65   0.5918       2.29      0.742         0.405           0.123       0.192
+ 0.70   0.6232       2.24      0.831         0.523           0.192       0.273
+ 0.80   0.6873       2.10      0.950         0.763           0.401       0.489
+ 0.90   0.7551       1.88      0.995         0.939           0.692       0.752
+minimum AUC detected with 80% power (randomized test):
+  AUC = 0.92
 
-=== Small track v7: n=19, robust=10, spurious=9, best constant=10/19=0.5263 ===
-  AUC   E[acc]  sd(cases)  P(>const)  P(>=const)  P(>=const+3)
- 0.50   0.5014       2.23      0.415       0.415         0.127
- 0.60   0.5733       2.21      0.663       0.663         0.308
- 0.65   0.6098       2.19      0.773       0.773         0.431
- 0.70   0.6473       2.14      0.864       0.864         0.566
- 0.80   0.7278       2.02      0.971       0.971         0.827
- 0.90   0.8221       1.76      0.999       0.999         0.978
+=== Power against test size, AUC 0.65, alpha 0.05 ===
+deployed rule with 4 equal model groups (Small-track layout); batch median for reference
+   n      crit  alpha  pow non-rand  pow rand  | batch: crit  pow rand
+  14    11/14   0.002         0.014     0.164       10/14       0.174
+  21    15/21   0.006         0.046     0.215       14/21       0.231
+  40    26/40   0.013         0.171     0.354       26/40       0.385
+  60    36/60   0.035         0.417     0.468       36/60       0.500
+ 100    58/100  0.036         0.621     0.668       58/100      0.684
+ 150    85/150  0.036         0.792     0.825       86/150      0.844
+ 200   112/200  0.033         0.883     0.914      112/200      0.918
+ 300   164/300  0.042         0.977     0.981      164/300      0.983
+ 400   216/400  0.045         0.995     0.996      216/400      0.996
 
-=== How many cases are needed to separate AUC 0.65 from a coin? ===
-Criterion: one-sided test of 'accuracy of the median rule > best constant',
-alpha = 0.05 under AUC = 0.50, power = 0.80 under AUC = 0.65.
-n=  14  crit=  10.0/14  actual alpha=0.014  power(AUC=0.65)=0.085
-n=  21  crit=  14.0/21  actual alpha=0.022  power(AUC=0.65)=0.156
-n=  40  crit=  26.0/40  actual alpha=0.013  power(AUC=0.65)=0.192
-n=  60  crit=  36.0/60  actual alpha=0.035  power(AUC=0.65)=0.449
-n= 100  crit=  58.0/100  actual alpha=0.036  power(AUC=0.65)=0.642
-n= 150  crit=  86.0/150  actual alpha=0.025  power(AUC=0.65)=0.757
-n= 200  crit= 112.0/200  actual alpha=0.033  power(AUC=0.65)=0.891
-n= 300  crit= 164.0/300  actual alpha=0.042  power(AUC=0.65)=0.979
-n= 400  crit= 216.0/400  actual alpha=0.047  power(AUC=0.65)=0.996
-n= 600  crit= 320.0/600  actual alpha=0.044  power(AUC=0.65)=1.000
-n= 800  crit= 424.0/800  actual alpha=0.038  power(AUC=0.65)=1.000
+=== Two independent entries of the same method, Small track, deployed rule ===
+AUC=0.50: E|delta| = 2.08 cases, P(|delta| >= 3) = 0.262
+AUC=0.65: E|delta| = 2.02 cases, P(|delta| >= 3) = 0.248
 
-=== Two runs of the same method, small track: 8/14 and 5/14 ===
-If both runs draw from the same distribution, how large is the gap by chance?
-AUC=0.50: E|delta| = 2.09 cases, P(|delta| >= 3) = 0.265
-AUC=0.65: E|delta| = 2.06 cases, P(|delta| >= 3) = 0.258
-
-=== Null distribution of the observed submissions (exact, hypergeometric) ===
-main 933057 (7/21), assuming s=10 True         E[correct|null]=10.52  P(correct<=7|null)=0.135
-main 933057 (7/21), assuming s=11 True         E[correct|null]=10.48  P(correct<=7|null)=0.063
-small 933231 (5/14), assuming s=6 True         E[correct|null]=7.00  P(correct<=5|null)=0.296
-small 933231 (5/14), assuming s=8 True         E[correct|null]=7.00  P(correct<=5|null)=0.296
-small 932631 (8/14), assuming s=7 True         E[correct|null]=7.00  P(correct<=8|null)=0.857
+=== Exact null tails of the three method submissions, by s = number of True ===
+correct = n - n_pos - s + 2t, t ~ Hypergeom(n, n_pos, s); s below the rule's minimum or of
+the wrong parity cannot produce the observed score and is skipped
+932631 Small 8/14    s_min=8  P(correct >= 8):  s=9: 0.500, s=11: 0.500, s=13: 0.500
+933231 Small 5/14    s_min=8  P(correct <= 5):  s=8: 0.296, s=10: 0.280, s=12: 0.231
+933057 Main 7/21     s_min=11  P(correct <= 7):  s=12: 0.142, s=14: 0.140, s=16: 0.126, s=18: 0.090

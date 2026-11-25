@@ -72,7 +72,12 @@ def predict(a, groups=None):
 
 def main():
     full = pd.read_parquet(ROOT / "data-hf" / "aimo-interp-challenge-sample-full.parquet")
-    fr = pairs(full)
+    for label in ("zero", "official"):
+        print(f"==================== label rule: {label} ====================")
+        run(pairs(full, label))
+
+
+def run(fr):
     base_all = fr.base.to_numpy()
     y_all = fr.is_robust.to_numpy()
     pos = np.flatnonzero(y_all)
@@ -87,12 +92,13 @@ def main():
                               ("per-model median (4/4/3/3)", groups4)):
         print(f"--- decision rule: {rule_name} ---")
         print(f"{'m':>3} {'E[score]':>9} {'sd within':>10} {'sd total':>9} "
-              f"{'sd between':>11} {'E|delta|':>9} {'P(|d|>=3)':>10} {'P(|d|>=3|worst)':>16}")
+              f"{'sd between':>11} {'E|delta|':>9} {'P(|d|>=3)':>10} {'P(|d|>=3|worst)':>16} {'E[s]':>6}")
         for m in (1, 2, 4, 8):
             means = np.empty(N_TESTS)
             within_var = np.empty(N_TESTS)
             d_abs = np.empty(N_TESTS)
             d_tail = np.empty(N_TESTS)
+            s_true = np.empty(N_TESTS)
             for t in range(N_TESTS):
                 idx = np.concatenate([
                     RNG.choice(pos, size=N_ROBUST, replace=False),
@@ -103,6 +109,7 @@ def main():
                 y = y_all[idx]
                 a = agreement(b, m, N_RUNS, RNG)
                 pred = predict(a, groups)
+                s_true[t] = pred.sum(axis=1).mean()
                 score = (pred == y[None, :]).sum(axis=1)
                 means[t] = score.mean()
                 within_var[t] = score.var()
@@ -115,12 +122,12 @@ def main():
             sd_total = np.sqrt(sd_within ** 2 + sd_between ** 2)
             print(f"{m:>3} {means.mean():>9.2f} {sd_within:>10.2f} {sd_total:>9.2f} "
                   f"{sd_between:>11.2f} {d_abs.mean():>9.2f} {d_tail.mean():>10.3f} "
-                  f"{np.quantile(d_tail, 0.95):>16.3f}")
+                  f"{np.quantile(d_tail, 0.95):>16.3f} {s_true.mean():>6.2f}")
         print()
 
     print("Reference (power.py, across-test: cases AND answers redrawn):")
-    print("  AUC 0.50  E|delta| = 2.09  P(|delta| >= 3) = 0.265")
-    print("  AUC 0.65  E|delta| = 2.06  P(|delta| >= 3) = 0.258")
+    print("  AUC 0.50  E|delta| = 2.08  P(|delta| >= 3) = 0.262  (deployed rule)")
+    print("  AUC 0.65  E|delta| = 2.02  P(|delta| >= 3) = 0.248  (deployed rule)")
 
 
 if __name__ == "__main__":

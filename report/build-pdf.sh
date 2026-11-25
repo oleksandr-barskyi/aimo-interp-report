@@ -8,11 +8,18 @@
 #   ./build-pdf.sh --anon   full report without author names for OpenReview
 set -e
 cd "$(dirname "$0")"
-SRC=report.md
+FULL="${TMPDIR:-/tmp}/report-full.md"
+PYTHONIOENCODING=utf-8 python3 - "$FULL" <<'PY'
+import subprocess, sys
+r = open('report.md').read()
+code = subprocess.run([sys.executable, 'codeappendix.py'], capture_output=True, text=True, check=True).stdout
+open(sys.argv[1], 'w').write(r.replace('<!-- CODE-APPENDIX -->', code))
+PY
+SRC="$FULL"
 OUT=report.pdf
 HEADER=neurips-header.tex
 if [ "$1" = "--anon" ]; then
-  PYTHONIOENCODING=utf-8 python3 anon.py < report.md > report-anon.md
+  PYTHONIOENCODING=utf-8 python3 anon.py < "$FULL" > report-anon.md
   sed 's/\\usepackage\[sglblindworkshop\]/\\usepackage[dblblindworkshop]/' neurips-header.tex > neurips-header-anon.tex
   SRC=report-anon.md
   OUT=report-anon.pdf

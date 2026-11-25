@@ -17,15 +17,30 @@ VAL_CASES = ROOT / "getting-started" / "data" / "val-sample" / "input" / "cases.
 VAL_LABELS = ROOT / "getting-started" / "data" / "val-sample" / "reference" / "labels.jsonl"
 
 
-def pairs(full: pd.DataFrame) -> pd.DataFrame:
+def pairs(full: pd.DataFrame, label: str = "zero") -> pd.DataFrame:
+    """One row per (model, problem).
+
+    label="zero": robust iff every perturbation row has decay exactly 0, the
+    rule of the original report.  label="official": the train-main-v2 rule,
+    max_drop = largest decay over perturbation rows, robust iff max_drop <= 0.10,
+    not robust iff max_drop >= 0.25, the band in between dropped.
+    """
     grouped = full.groupby(["model_id", "original_problem"])
     frame = grouped.agg(
-        is_robust=("absolute_accuracy_decay", lambda s: bool((s == 0).all())),
+        zero_decay=("absolute_accuracy_decay", lambda s: bool((s == 0).all())),
+        max_drop=("absolute_accuracy_decay", "max"),
         base=("base_accuracy", "mean"),
         n_rows=("absolute_accuracy_decay", "size"),
     ).reset_index()
     frame["n_words"] = frame.original_problem.str.split().str.len()
-    return frame
+    if label == "zero":
+        frame["is_robust"] = frame.zero_decay
+    elif label == "official":
+        frame = frame[(frame.max_drop <= 0.10) | (frame.max_drop >= 0.25)].copy()
+        frame["is_robust"] = frame.max_drop <= 0.10
+    else:
+        raise ValueError(label)
+    return frame.reset_index(drop=True)
 
 
 def check_label_rule(frame: pd.DataFrame) -> None:

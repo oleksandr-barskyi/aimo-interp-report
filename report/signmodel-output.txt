@@ -1,0 +1,31 @@
+
+=== label rule zero: 80 pairs, 25 robust, k = 8, 4000 replicates ===
+  m  AUC high agr -> robust  AUC low agr -> robust  sd over reps
+  1                   0.699                  0.301         0.017
+  2                   0.443                  0.557         0.026
+  4                   0.363                  0.637         0.020
+  8                   0.335                  0.665         0.017
+
+=== label rule official: 69 pairs, 38 robust, k = 8, 4000 replicates ===
+  m  AUC high agr -> robust  AUC low agr -> robust  sd over reps
+  1                   0.578                  0.422         0.024
+  2                   0.312                  0.688         0.029
+  4                   0.255                  0.745         0.021
+  8                   0.237                  0.763         0.017
+
+=== perturbation alternative (Appendix D) ===
+predictor: decay of one type == 0 (zero label) or <= 0.10 (official); label recomputed from
+the OTHER types only, so the predictor is not part of its own label
+  typos     zero: pairs=70 AUC=0.806   official: pairs=58 AUC=0.741
+  distract  zero: pairs=70 AUC=0.816   official: pairs=60 AUC=0.681
+  rephrase  zero: pairs=70 AUC=0.779   official: pairs=59 AUC=0.725
+  rename    zero: pairs=70 AUC=0.755   official: pairs=61 AUC=0.613
+  domain    zero: pairs=70 AUC=0.800   official: pairs=58 AUC=0.657
+  Spearman between types: min 0.57, median 0.72, max 0.79
+permutation_type  typos  distract  rephrase  rename  domain
+permutation_type                                           
+typos              1.00      0.76      0.79    0.75    0.76
+distract           0.76      1.00      0.77    0.57    0.65
+rephrase           0.79      0.77      1.00    0.70    0.59
+rename             0.75      0.57      0.70    1.00    0.67
+domain             0.76      0.65      0.59    0.67    1.00
